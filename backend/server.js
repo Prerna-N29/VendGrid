@@ -44,3 +44,11 @@ const { verifyToken } = require("./middleware/authMiddleware");
 app.get("/protected", verifyToken, (req, res) => {
   res.json({ message: "Protected route accessed", user: req.user });
 });
+
+const productRoutes = require("./routes/productRoutes");
+
+app.use("/api/products", productRoutes);
+
+const orderRoutes = require("./routes/orderRoutes");
+
+app.use("/api/orders", orderRoutes);
